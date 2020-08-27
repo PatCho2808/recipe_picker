@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/bootstrap.min.css">
+    </head>
+    <body>
+        <%- include('header'); -%>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    New recipe
+                </div>
+                <div class="card-body">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" placeholder="Chicken with rice" aria-label="name" aria-describedby="name">
+
+                    <label for="ingredient">New ingredient</label>
+                    <input type="text" class="form-control" placeholder="milk,butter,sos" aria-label="ingredient" aria-describedby="ingredient">
+                    <button class="btn btn-primary" > Add</button>
+                </div>
+              </div>
+        </div>
+    </body>
+</html>
