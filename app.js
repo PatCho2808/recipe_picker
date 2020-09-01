@@ -20,7 +20,19 @@ app.get('/', async (req, res) => {
             queries.push({ingredients: ingredient}); 
         });
         await recipes_collection.find({$or: queries})
-        .then( data => recipes = data)
+        .then( data => {
+            recipes = data; 
+            recipes.forEach(recipe => {
+                recipe.match = 0; 
+                recipe.ingredients.forEach(ingredient => {
+                    if(ingredients.includes(ingredient))
+                    {
+                        recipe.match++; 
+                    }
+                })
+            }); 
+            recipes.sort((a, b) => b.match - a.match); 
+        })
         .catch(error => console.log(error));           
     }  
     
