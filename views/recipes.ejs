@@ -1,0 +1,15 @@
+<div class="card">
+    <div class="card-header">
+        Recipes
+    </div>
+    <div class="card-body">
+        <ul>
+            <% recipes.forEach(recipe => { %>
+                <li>
+                    <a href=<%=recipe.link%> target="_blank"> <%= recipe.name.toLowerCase()%>  </a>
+                </li>
+            <% }); %>
+            
+        </ul>
+    </div>
+</div>
