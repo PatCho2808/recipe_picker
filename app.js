@@ -1,9 +1,10 @@
 const express = require('express'); 
-const {MongoClient} = require('mongodb'); 
+const db = require('monk')('localhost/recipe_picker');
+
 
 const app = express(); 
 const port = 3666;
-const uri = "mongodb://localhost:27017/";
+
 
 
 app.use('/css', express.static('./node_modules/bootstrap/dist/css'));
@@ -12,19 +13,8 @@ app.use(express.static('./public/'));
 app.set('view engine', 'ejs'); 
 
 app.get('/', async (req, res) => {
-const client = new MongoClient(uri);
- 
-    try {
-        // Connect to the MongoDB cluster
-        await client.connect();
- 
-        console.log(client.collection('recipes')); 
- 
-    } catch (e) {
-        console.error(e);
-    } finally {
-        await client.close();
-    }
+    const recipes = db.get('recipes'); 
+    recipes.find({}).then( doc => console.log(doc)); 
     res.render('index'); 
 }); 
 
