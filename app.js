@@ -1,5 +1,5 @@
 const express = require('express'); 
-const db = require('monk')('localhost/recipe_picker');
+const db = require('monk')('mongodb+srv://admin:kinlxw@cluster0.pwvjl.mongodb.net/recipe_picker?retryWrites=true&w=majority');
 
 const app = express(); 
 const port = 3666;
