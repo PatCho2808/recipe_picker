@@ -53,4 +53,4 @@ app.post('/add', async (req, res) => {
     res.render('addRecipe', {message: `Recipe "${req.body.name}" added succesfully`}); 
 })
 
-app.listen(port, () => console.log(`Listening on: http://localhost:${port}`)); 
+app.listen(process.env.PORT || port, () => console.log(`Listening on: http://localhost:${port}`)); 
