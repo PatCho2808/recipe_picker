@@ -5,3 +5,8 @@
 .card{
     margin-top: 2em; 
 }
+
+.success{
+    margin: 3em; 
+    color: green; 
+}
