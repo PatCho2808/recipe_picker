@@ -8,7 +8,6 @@ router.get('/', (req, res) => {
     mainController.searchForRecipes(req,res); 
 });
 
-
 router.get('/add', (req, res) => {
     res.render('addRecipe', { message: false });
 })
