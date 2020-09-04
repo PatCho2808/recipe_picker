@@ -1,66 +1,15 @@
 const express = require('express');
-const db = require('monk')('mongodb+srv://admin:kinlxw@cluster0.pwvjl.mongodb.net/recipe_picker?retryWrites=true&w=majority');
-const { body, validationResult } = require('express-validator');
 
 const app = express();
-const port = 3666;
+
+const routes = require('./routes/routes'); 
 
 app.use(express.urlencoded({ extended: false }));
 app.use('/css', express.static('./node_modules/bootstrap/dist/css'));
 app.use('/js', express.static('./node_modules/bootstrap/dist/js'));
 app.use(express.static('./public/'));
+app.use(routes); 
+
 app.set('view engine', 'ejs');
 
-app.get('/', async (req, res) => {
-    let recipes = [];
-    if (req.query.ingredients) {
-        const recipes_collection = db.get('recipes');
-        const ingredients = req.query.ingredients.split(' ');
-        let queries = [];
-        ingredients.forEach(ingredient => {
-            queries.push({ ingredients: ingredient });
-        });
-        await recipes_collection.find({ $or: queries })
-            .then(data => {
-                recipes = data;
-                recipes.forEach(recipe => {
-                    recipe.match = 0;
-                    recipe.ingredients.forEach(ingredient => {
-                        if (ingredients.includes(ingredient)) {
-                            recipe.match++;
-                        }
-                    })
-                });
-                recipes.sort((a, b) => b.match - a.match);
-            })
-            .catch(error => console.log(error));
-    }
-
-    res.render('index', { recipes });
-});
-
-
-app.get('/add', (req, res) => {
-    res.render('addRecipe', { message: false });
-})
-
-app.post('/add', [
-    body('name').trim().notEmpty(), 
-    body('ingredients').trim().notEmpty(),
-    body('link').trim().notEmpty().custom(value => value.match('^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$'))
-], async (req, res) => {
-    const errors = validationResult(req); 
-    console.log(errors); 
-    if(!errors.isEmpty())
-    {
-        console.error(errors.array());
-        res.render('addRecipe', { message: 'Wrong values'});
-        return;
-    }
-    const recipes_collection = db.get('recipes');
-    const ingredients = req.body.ingredients.split(', ');
-    await recipes_collection.insert({ name: req.body.name, ingredients, link: req.body.link });
-    res.render('addRecipe', { message: `Recipe "${req.body.name}" added succesfully` });
-})
-
-app.listen(process.env.PORT || port, () => console.log(`Listening on: http://localhost:${port}`)); 
+module.exports = app; 

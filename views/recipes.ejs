@@ -6,7 +6,7 @@
         <ul>
             <% recipes.forEach(recipe => { %>
                 <li>
-                    <a href=<%=recipe.link%> target="_blank"> <%= recipe.name.toLowerCase()%>  </a>
+                    <a class="recipe_link" href=<%=recipe.link%> target="_blank"> <%= recipe.name.toLowerCase()%>  </a>
                 </li>
             <% }); %>
             
