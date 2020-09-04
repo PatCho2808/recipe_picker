@@ -1,5 +1,4 @@
 const app = require('./app'); 
-
-const port = process.env.PORT || 3666; 
+const { port } = require('./config'); 
 
 app.listen(port); 
