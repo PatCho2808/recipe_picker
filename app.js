@@ -1,6 +1,6 @@
 const express = require('express');
 const db = require('monk')('mongodb+srv://admin:kinlxw@cluster0.pwvjl.mongodb.net/recipe_picker?retryWrites=true&w=majority');
-const { body, validationResult, sanitizeBody } = require('express-validator');
+const { body, validationResult } = require('express-validator');
 
 const app = express();
 const port = 3666;
