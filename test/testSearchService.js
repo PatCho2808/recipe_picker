@@ -22,4 +22,14 @@ it("search for kurczak",async  function () {
     expect(recipes).to.be.an('array').that.is.empty;
 });
 
+it("search for makaron and kurczak", async  function () {
+    let recipes = await searchService.getRecipesSortedByMatchingIngredients(['kurczak', 'makaron']); 
+    expect(recipes).to.be.lengthOf(2);  
+});
+
+it("sort by makaron and kurczak", async  function () {
+    let recipes = await searchService.getRecipesSortedByMatchingIngredients(['kurczak', 'makaron']); 
+    expect(recipes[0].name).to.equal('Kurczak z makaronem');  
+    expect(recipes[1].name).to.equal('Kurczak z ryzem');  
+});
 
