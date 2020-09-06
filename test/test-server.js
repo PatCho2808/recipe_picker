@@ -13,7 +13,6 @@ it("/ status 200", function () {
 it("/ status 200", function () {
     request(url + '/?ingredients=kurczak', function (error, response, body) {
         expect(response.statusCode).to.equal(200);
-        console.log(typeof body); 
     });
 });
 

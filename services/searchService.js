@@ -2,13 +2,16 @@ const mongoService = require('./mongoService');
 
 module.exports = {
     getRecipesSortedByMatchingIngredients: async ingredients => {
+        if (!ingredients) return [];
         let queries = [];
         ingredients.forEach(ingredient => {
             queries.push({ ingredients: ingredient });
         });
         let recipes = []
         await mongoService.getRecipesByIngredients(queries)
-            .then(data => recipes = module.exports.sortRecipesByMatchingIngredients(data, ingredients))
+            .then(data => {
+                recipes = module.exports.sortRecipesByMatchingIngredients(data, ingredients)
+            })
             .catch(error => console.log(error));
         return recipes;
     },
@@ -23,6 +26,6 @@ module.exports = {
             })
         });
         recipes.sort((a, b) => b.match - a.match);
-        return recipes; 
+        return recipes;
     }
 }

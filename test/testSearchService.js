@@ -2,23 +2,24 @@ const expect = require('chai').expect;
 const searchService = require('../services/searchService'); 
 
 
-it("/ status 200", function () {
-    request(url, function (error, response, body) {
-        expect(response.statusCode).to.equal(200);
-    });
+it("search for kurczak",async  function () {
+    let recipes = await searchService.getRecipesSortedByMatchingIngredients(['kurczak']); 
+    expect(recipes).to.be.lengthOf(2);  
 });
 
-it("/ status 200", function () {
-    request(url + '/?ingredients=kurczak', function (error, response, body) {
-        expect(response.statusCode).to.equal(200);
-        console.log(typeof body); 
-    });
+it("search for makaron",async  function () {
+    let recipes = await searchService.getRecipesSortedByMatchingIngredients(['makaron']); 
+    expect(recipes).to.be.lengthOf(1);  
 });
 
-it("/add status 200", function () {
-    request(url + '/add', function (error, response, body) {
-        expect(response.statusCode).to.equal(200);
-    });
+it("search for sol",async  function () {
+    let recipes = await searchService.getRecipesSortedByMatchingIngredients(['sol']); 
+    expect(recipes).to.be.lengthOf(0);  
+});
+
+it("search for kurczak",async  function () {
+    let recipes = await searchService.getRecipesSortedByMatchingIngredients(); 
+    expect(recipes).to.be.an('array').that.is.empty;
 });
 
 
