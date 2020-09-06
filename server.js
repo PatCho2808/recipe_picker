@@ -1,4 +1,3 @@
-const app = require('./app'); 
-const { port } = require('./config/index.js'); 
+const app = require('./app');  
 
-app.listen(process.env.PORT || port, console.log(`listening on http://localhost:${port}`)); 
+app.listen(process.env.PORT || 3000, console.log(`listening on http://localhost:${port}`)); 
