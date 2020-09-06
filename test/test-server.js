@@ -1,7 +1,8 @@
 const expect = require('chai').expect;
 const request = require('request');
+const { port } = require('../config/index'); 
 
-const url = 'http://localhost:3666';
+const url = `http://localhost:${port}`; 
 
 it("/ status 200", function () {
     request(url, function (error, response, body) {
