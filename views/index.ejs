@@ -1,8 +1,5 @@
 <html>
-    <head>
-        <link rel="stylesheet" href="/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/css/style.css">
-    </head>
+    <%- include('head'); -%>
     <body>
         <%- include('header'); -%>
         <div class="container">
@@ -20,6 +17,7 @@
                 <%- include('recipes'); -%>
               <% } %>
         </div>
+        <script src='/js/addIngredient.js'></script>
         <%- include('scripts'); -%>
     </body>
 </html>
