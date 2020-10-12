@@ -4,7 +4,6 @@ const searchService = require('../services/searchService');
 module.exports = {
     createRecipe: async (req, res) => {
         const errors = validationResult(req);
-        console.log(errors);
         if (!errors.isEmpty()) {
             console.error(errors.array());
             res.render('addRecipe', { message: 'Wrong values' });

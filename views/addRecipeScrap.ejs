@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            Paste link (only <a href="https://kwestiasmaku.pl" target="_blank"> kwestiasmaku </a> for now)
+        </div>
+        <div class="card-body">
+            <form action="/add" method="post">
+
+                <label for="scrap_link">Link: </label>
+                <input id="scrap_link" class="form-control" type="text" name="scrap_link" placeholder="https://">
+
+                <input type="submit" value="Add" class="btn btn-primary">
+            </form>
+        </div>
+      </div>
+      <% if (message) {%>
+      <p class="success"><%=message%></p> 
+      <% } %>
+</div>
