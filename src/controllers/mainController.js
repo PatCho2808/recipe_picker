@@ -1,26 +1,43 @@
-const mongoService = require('../services/mongoService'); 
-const searchService = require('../services/searchService'); 
+const mongoService = require("../services/mongoService");
+const searchService = require("../services/searchService");
+const scrapService = require("../services/scrapingService");
 
 module.exports = {
-    createRecipe: async (req, res) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            console.error(errors.array());
-            res.render('addRecipe', { message: 'Wrong values' });
-            return;
-        }
-        const ingredients = req.body.ingredients.split(', ');
-        await mongoService.addRecipe(req.body.name, ingredients, req.body.link); 
-        res.render('addRecipe', { message: `Recipe "${req.body.name}" added succesfully` });
-    },
-
-    searchForRecipes: async (req, res) => {
-        
-        let recipes = [];
-        if (req.query.ingredients) {
-            const ingredients = req.query.ingredients.split(' ');
-            recipes = await searchService.getRecipesSortedByMatchingIngredients(ingredients); 
-        }
-        res.render('index', { recipes });
+  createRecipe: async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      console.error(errors.array());
+      res.render("addRecipe", { message: "Wrong values" });
+      return;
     }
-}
+    const ingredients = req.body.ingredients.split(", ");
+    await mongoService.addRecipe(req.body.name, ingredients, req.body.link);
+    res.render("addRecipe", {
+      message: `Recipe "${req.body.name}" added succesfully`,
+    });
+  },
+
+  searchForRecipes: async (req, res) => {
+    let recipes = [];
+    if (req.query.ingredients) {
+      const ingredients = req.query.ingredients.split(" ");
+      recipes = await searchService.getRecipesSortedByMatchingIngredients(
+        ingredients
+      );
+    }
+    res.render("index", { recipes });
+  },
+
+  scrapeRecipe: async (req, res) => {
+    try {
+      const url = req.body.scrap_link;
+      const { title, ingredients } = scrapService.getRecipeFromPage(url);
+      await mongoService.addRecipe(title, ingredients, url);
+      res.render("addRecipe", {
+        message: `Recipe "${title}" added succesfully`,
+      });
+    } catch (error) {
+      res.render("addRecipe", { message: "Wrong url" });
+    }
+  },
+};
