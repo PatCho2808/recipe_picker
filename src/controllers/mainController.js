@@ -31,7 +31,8 @@ module.exports = {
   scrapeRecipe: async (req, res) => {
     try {
       const url = req.body.scrap_link;
-      const { title, ingredients } = scrapService.getRecipeFromPage(url);
+      const { title, ingredients } = await scrapService.getRecipeFromPage(url);
+      console.log(url);
       await mongoService.addRecipe(title, ingredients, url);
       res.render("addRecipe", {
         message: `Recipe "${title}" added succesfully`,
