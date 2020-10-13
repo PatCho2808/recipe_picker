@@ -6,14 +6,14 @@
         <div class="card-body">
             <form action="/add" method="post">
 
-                <label for="name">Name: </label>
-                <input id="name" class="form-control" type="text" name="name" placeholder="Chicken with ">
+                <label for="title">Title: </label>
+                <input id="title" class="form-control" type="text" name="title" placeholder="Chicken with " value="<%=recipe.title%>"/>
                 
                 <label for="ingredients">Ingredients: </label>
-                <input id="ingredients" class="form-control" type="text" name="ingredients" placeholder="chicken, rice ">
+                <input id="ingredients" class="form-control" type="text" name="ingredients" placeholder="chicken, rice " value="<%-recipe.ingredients%>" />
 
                 <label for="link">Link: </label>
-                <input id="link" class="form-control" type="text" name="link" placeholder="https://">
+                <input id="link" class="form-control" type="text" name="link" placeholder="https://" value="<%=recipe.link%> "/>
 
                 <input type="submit" value="Add" class="btn btn-primary">
             </form>

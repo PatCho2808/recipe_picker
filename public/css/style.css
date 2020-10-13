@@ -1,12 +1,16 @@
-.btn{
-    margin-top: 1em; 
+.btn {
+  margin-top: 1em;
 }
 
-.card{
-    margin-top: 2em; 
+.card {
+  margin-top: 2em;
 }
 
-.success{
-    margin: 3em; 
-    color: green; 
+.success {
+  margin: 3em;
+  color: green;
+}
+
+.ingredients_input {
+  padding-top: 1em;
 }

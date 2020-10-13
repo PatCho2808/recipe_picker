@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require("monk")(
   "mongodb+srv://admin:kinlxw@cluster0.pwvjl.mongodb.net/recipe_picker?retryWrites=true&w=majority"
 );
-const { body, validationResult } = require("express-validator");
+const { body } = require("express-validator");
 const mainController = require("../controllers/mainController");
 
 router.get("/", (req, res) => {
@@ -11,13 +11,13 @@ router.get("/", (req, res) => {
 });
 
 router.get("/add", (req, res) => {
-  res.render("addRecipe", { message: false });
+  res.render("addRecipe", { message: false, recipe: {} });
 });
 
 router.post(
   "/add",
   [
-    body("name").trim().notEmpty(),
+    body("title").trim().notEmpty(),
     body("ingredients").trim().notEmpty(),
     body("link")
       .trim()

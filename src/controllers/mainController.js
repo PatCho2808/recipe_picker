@@ -1,3 +1,4 @@
+const { validationResult } = require("express-validator");
 const mongoService = require("../services/mongoService");
 const searchService = require("../services/searchService");
 const scrapService = require("../services/scrapingService");
@@ -7,13 +8,14 @@ module.exports = {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       console.error(errors.array());
-      res.render("addRecipe", { message: "Wrong values" });
+      res.render("addRecipe", { message: "Wrong values", recipe: {} });
       return;
     }
     const ingredients = req.body.ingredients.split(", ");
-    await mongoService.addRecipe(req.body.name, ingredients, req.body.link);
+    await mongoService.addRecipe(req.body.title, ingredients, req.body.link);
     res.render("addRecipe", {
-      message: `Recipe "${req.body.name}" added succesfully`,
+      message: `Recipe "${req.body.title}" added succesfully`,
+      recipe: {},
     });
   },
 
@@ -32,13 +34,12 @@ module.exports = {
     try {
       const url = req.body.scrap_link;
       const { title, ingredients } = await scrapService.getRecipeFromPage(url);
-      console.log(url);
-      await mongoService.addRecipe(title, ingredients, url);
       res.render("addRecipe", {
-        message: `Recipe "${title}" added succesfully`,
+        message: "",
+        recipe: { title, ingredients, link: url },
       });
     } catch (error) {
-      res.render("addRecipe", { message: "Wrong url" });
+      res.render("addRecipe", { message: "Wrong url", recipe: {} });
     }
   },
 };

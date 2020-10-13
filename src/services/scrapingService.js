@@ -28,7 +28,7 @@ const getIngredients = ($) => {
     .each((i, el) => {
       ingredients.push(simplifyIngredient(el.children[0].data));
     });
-  return ingredients;
+  return ingredients.join(", ");
 };
 
 const simplifyIngredient = (ing) => {
