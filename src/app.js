@@ -6,6 +6,14 @@ const app = express();
 
 app.use(compression());
 app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'unsafe-inline'", "'self'"],
+    },
+  })
+);
 
 const routes = require("./routes/routes");
 
