@@ -1,6 +1,5 @@
-const db = require("monk")(
-  "mongodb+srv://admin:kinlxw@cluster0.pwvjl.mongodb.net/recipe_picker?retryWrites=true&w=majority"
-);
+const { mongodb_url } = require("../../config");
+const db = require("monk")(mongodb_url);
 
 const addRecipe = async (title, ingredients, link) => {
   const recipes_collection = db.get("recipes");
