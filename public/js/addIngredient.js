@@ -1,5 +1,12 @@
-let button = document.getElementById('addIngredientsButton'); 
+let button = document.getElementById("addIngredientsButton");
 button.onclick = () => {
-    const value = document.getElementById('ingredient').value.replaceAll(', ', '+'); 
-    window.location = `${window.location}?ingredients=${value}`; 
-}; 
+  console.log("hello");
+  const value = document
+    .getElementById("ingredient")
+    .value.replaceAll(", ", "+");
+  const url = new URL(window.location);
+  let params = new URLSearchParams("");
+  params.append("ingredients", value);
+  url.search = "?" + params;
+  window.location = url;
+};
