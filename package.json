@@ -4,10 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js",
+    "node:build": "node src/server.js",
+    "node:watch": "nodemon src/server.js",
     "debug": "node --inspect-brk server.js",
-    "test": "mocha --reporter spec"
+    "test": "mocha --reporter spec",
+    "build:sass": "sass sass/main.scss public/css/style.css",
+    "watch:sass": "sass --watch sass/main.scss public/css/style.css",
+    "dev": "npm run node:watch & npm run watch:sass"
   },
   "repository": {
     "type": "git",

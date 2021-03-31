@@ -1,16 +1,88 @@
-.btn {
-  margin-top: 1em;
+html {
+  font-size: 62.5%;
+  --color-primary: #264653;
+  --color-secondary: #e9c46a;
+  --color-tertiary: #e76f51;
 }
 
-.card {
-  margin-top: 2em;
+body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Kiwi Maru", serif;
 }
 
-.success {
-  margin: 3em;
-  color: green;
+.header {
+  flex: 0 0 15%;
+  padding: 3rem;
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 50rem;
+}
+.header__name {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.header__links {
+  margin-bottom: auto;
+}
+.header__list {
+  list-style: none;
+  font-size: 2rem;
+  padding: 0;
+}
+.header__item {
+  padding: 1.5rem;
+  transition: all 0.2s;
+  position: relative;
+}
+.header__item:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.header__item::before {
+  content: "";
+  background-color: var(--color-tertiary);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  transform: scaleY(0);
+  transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s;
+}
+.header__item:hover {
+  cursor: pointer;
+}
+.header__item--active:before {
+  transform: scaleY(1);
+}
+.header__item:hover::before {
+  width: 100%;
+  transform: scaleY(1);
+}
+.header__link:visited, .header__link:link {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  z-index: 100;
+}
+.header__copyright {
+  text-align: center;
 }
 
-.ingredients_input {
-  padding-top: 1em;
+.container {
+  display: flex;
+  margin: 10rem;
+  box-shadow: 9px 8px 20px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  overflow: hidden;
 }
+
+/*# sourceMappingURL=style.css.map */
