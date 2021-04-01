@@ -1,3 +1,11 @@
+@keyframes slide-right {
+  from {
+    transform: translateX(200%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
 html {
   font-size: 62.5%;
   --color-primary: #264653;
@@ -160,6 +168,7 @@ body {
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
+  animation: slide-right 0.5s backwards;
 }
 
 .search {
