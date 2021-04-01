@@ -1,15 +1,14 @@
-<div class="card">
-    <div class="card-header">
-        Recipes
-    </div>
-    <div class="card-body">
-        <ul>
+<div class="recipes">
+    <div class="recipes__text">
+        <h3 class="heading__tertiary">Found recipes:</h3>
+        <ul class="recipes__list">
             <% recipes.forEach(recipe => { %>
-                <li>
-                    <a class="recipe_link" href=<%=recipe.link%> target="_blank"> <%= recipe.title.toLowerCase()%>  </a>
+                <li class="recipes__item">
+                    <ion-icon class="recipes__item__icon" name="chevron-forward-outline"></ion-icon>
+                    <a class="recipes__link" href=<%=recipe.link%> target="_blank"> <%= recipe.title.toLowerCase()%> <ion-icon class="recipes__link__icon" name="open-outline"></ion-icon> </a>
+                    
                 </li>
             <% }); %>
-            
         </ul>
     </div>
 </div>

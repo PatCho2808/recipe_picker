@@ -208,4 +208,30 @@ body {
   font-size: 1.5rem;
 }
 
+.recipes__list {
+  list-style: none;
+}
+.recipes__item {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+}
+.recipes__item:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+.recipes__item__icon {
+  font-size: 2rem;
+  color: var(--color-tertiary);
+  margin-right: 1rem;
+  display: block;
+}
+.recipes__link {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+.recipes__link__icon {
+  font-size: 1.3rem;
+}
+
 /*# sourceMappingURL=style.css.map */
