@@ -1,0 +1,31 @@
+.input {
+	padding: 1rem 3rem;
+	border: 2px solid #eff1f1;
+	transition: all 0.2s;
+	font-family: inherit;
+	box-shadow: 9px 8px 11px 0px #00000082;
+
+	&--animated:focus {
+		padding: 1rem 5rem;
+		transform: translateY(-3px);
+	}
+
+	&:focus {
+		outline: none;
+		border-bottom: 2px solid var(--color-primary);
+	}
+
+	&:focus + &__btn {
+		transform: translateY(-3px);
+	}
+
+	&__btn {
+		border: none;
+		background-color: transparent;
+		margin-left: -5rem;
+		font-size: 3rem;
+		cursor: pointer;
+		transition: all 0.2s;
+		backface-visibility: hidden;
+	}
+}

@@ -1,19 +1,25 @@
-<div class="container">
-    <div class="card">
-        <div class="card-header">
-            Paste link (only <a href="https://kwestiasmaku.pl" target="_blank"> kwestiasmaku </a> for now)
-        </div>
-        <div class="card-body">
-            <form action="/scrape" method="post">
+<div class="scrap">
+	<div class="scrap__text">
+		<h3 class="heading__tertiary">
+			Paste link (only
+			<a href="https://kwestiasmaku.pl" target="_blank"> kwestiasmaku </a> for
+			now)
+		</h3>
+	</div>
+	<form action="/scrape" method="post" class="scrap__form">
+		<input
+			id="scrap_link"
+			class="input input--animated"
+			type="text"
+			name="scrap_link"
+			placeholder="https://"
+		/>
 
-                <label for="scrap_link">Link: </label>
-                <input id="scrap_link" class="form-control" type="text" name="scrap_link" placeholder="https://">
-
-                <input type="submit" value="Analize page" class="btn btn-primary">
-            </form>
-        </div>
-      </div>
-      <% if (message) {%>
-      <p class="success"><%=message%></p> 
-      <% } %>
+		<button type="submit" value="Analize page" class="input__btn">
+			<ion-icon name="cog-outline"></ion-icon>
+		</button>
+	</form>
+	<% if (message) {%>
+	<p class="success"><%=message%></p>
+	<% } %>
 </div>

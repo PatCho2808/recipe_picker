@@ -1,25 +1,52 @@
-<div class="container">
-    <div class="card">
-        <div class="card-header">
-            Or manually add recipe
-        </div>
-        <div class="card-body">
-            <form action="/add" method="post">
+<div class="add-recipe">
+	<div class="add-recipe__text">
+		<h3 class="heading__tertiary">Or manually ad recipe</h3>
+	</div>
+	<form action="/add" method="post" class="add-recipe__form">
+		<label for="title">Title: </label>
+		<input
+			id="title"
+			class="input"
+			type="text"
+			name="title"
+			placeholder="Chicken with "
+			value="<%=recipe.title%>"
+		/>
 
-                <label for="title">Title: </label>
-                <input id="title" class="form-control" type="text" name="title" placeholder="Chicken with " value="<%=recipe.title%>"/>
-                
-                <label for="ingredients">Ingredients: </label>
-                <input id="ingredients" class="form-control" type="text" name="ingredients" placeholder="chicken, rice " value="<%-recipe.ingredients%>" />
+		<label for="ingredients">Ingredients: </label>
+		<input
+			id="ingredients"
+			class="input"
+			type="text"
+			name="ingredients"
+			placeholder="chicken, rice "
+			value="<%-recipe.ingredients%>"
+		/>
 
-                <label for="link">Link: </label>
-                <input id="link" class="form-control" type="text" name="link" placeholder="https://" value="<%=recipe.link%> "/>
+		<label for="link">Link: </label>
+		<input
+			id="link"
+			class="input"
+			type="text"
+			name="link"
+			placeholder="https://"
+			value="<%=recipe.link%> "
+		/>
 
-                <input type="submit" value="Add" class="btn btn-primary">
-            </form>
-        </div>
-      </div>
-      <% if (message) {%>
-      <p class="success"><%=message%></p> 
-      <% } %>
+		<button type="submit" value="Add" class="btn-animated">
+			<div class="btn-animated__content">
+				<div class="btn-animated__content--first">
+					<ion-icon name="chevron-forward-outline"></ion-icon>
+				</div>
+				<div class="btn-animated__content--second">
+					<ion-icon name="chevron-forward-outline"></ion-icon>
+					<ion-icon name="chevron-forward-outline"></ion-icon>
+					<ion-icon name="chevron-forward-outline"></ion-icon>
+				</div>
+			</div>
+		</button>
+	</form>
+	<% if (message) {%>
+	<p class="success"><%=message%></p>
+	<% } %>
 </div>

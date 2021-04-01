@@ -3,7 +3,6 @@
 	padding: 3rem;
 	background-color: var(--color-primary);
 	color: white;
-	border-radius: 4px;
 
 	display: flex;
 	flex-direction: column;
@@ -11,7 +10,7 @@
 	align-items: stretch;
 
 	//TEST
-	height: 50rem;
+	min-height: 50rem;
 
 	&__name {
 		text-transform: uppercase;
@@ -56,7 +55,7 @@
 		}
 
 		&--active:before {
-			transform: scaleY(1);
+			transform: scaleY(0.75);
 		}
 
 		&:hover::before {

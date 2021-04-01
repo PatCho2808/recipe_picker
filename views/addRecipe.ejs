@@ -1,9 +1,14 @@
 <html>
-    <%- include('head'); -%>
-    <body>
-        <%- include('header'); -%>
-        <%- include('addRecipeScrap'); -%>
-        <%- include('addRecipeForm'); -%>
-        <%- include('scripts'); -%>
-    </body>
+	<%- include('head'); -%>
+	<body>
+		<div class="container">
+			<div class="content">
+				<%- include('header'); -%>
+				<main class="main">
+					<%- include('addRecipeScrap'); -%> <%- include('addRecipeForm'); -%>
+				</main>
+				<%- include('scripts'); -%>
+			</div>
+		</div>
+	</body>
 </html>

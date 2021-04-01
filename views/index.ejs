@@ -2,26 +2,30 @@
 	<%- include('head'); -%>
 	<body>
 		<div class="container">
-			<%- include('header'); -%>
 			<div class="content">
-				<div class="card">
-					<div class="card-header">What do you have in the fridge?</div>
-					<div class="card-body">
-						<label for="ingredient">New ingredient</label>
-						<input
-							type="text"
-							class="form-control"
-							placeholder="milk, butter, sos"
-							id="ingredient"
-							aria-label="ingredient"
-							aria-describedby="ingredient"
-						/>
-						<button class="btn btn-primary" id="addIngredientsButton">
-							Search
-						</button>
+				<%- include('header'); -%>
+
+				<main class="main">
+					<div class="search search--center">
+						<div class="search__text">
+							<h3 class="heading__tertiary">
+								What do you have in your fridge?
+							</h3>
+						</div>
+						<form action="#" class="search__form">
+							<input
+								type="text"
+								class="input input--animated"
+								placeholder="milk, butter, sos"
+								id="ingredient"
+							/>
+							<button class="input__btn" id="addIngredientsButton">
+								<ion-icon name="search-outline"></ion-icon>
+							</button>
+						</form>
 					</div>
-				</div>
-				<% if (recipes.length > 0 ) { %> <%- include('recipes'); -%> <% } %>
+					<% if (recipes.length > 0 ) { %> <%- include('recipes'); -%> <% } %>
+				</main>
 			</div>
 		</div>
 		<script src="/js/addIngredient.js"></script>

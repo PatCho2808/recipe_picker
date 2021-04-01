@@ -12,17 +12,21 @@ body {
   font-family: "Kiwi Maru", serif;
 }
 
+.heading__tertiary {
+  font-size: 4rem;
+  font-weight: 300;
+}
+
 .header {
   flex: 0 0 15%;
   padding: 3rem;
   background-color: var(--color-primary);
   color: white;
-  border-radius: 4px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  height: 50rem;
+  min-height: 50rem;
 }
 .header__name {
   text-transform: uppercase;
@@ -61,7 +65,7 @@ body {
   cursor: pointer;
 }
 .header__item--active:before {
-  transform: scaleY(1);
+  transform: scaleY(0.75);
 }
 .header__item:hover::before {
   width: 100%;
@@ -77,12 +81,131 @@ body {
   text-align: center;
 }
 
+.input {
+  padding: 1rem 3rem;
+  border: 2px solid #eff1f1;
+  transition: all 0.2s;
+  font-family: inherit;
+  box-shadow: 9px 8px 11px 0px #00000082;
+}
+.input--animated:focus {
+  padding: 1rem 5rem;
+  transform: translateY(-3px);
+}
+.input:focus {
+  outline: none;
+  border-bottom: 2px solid var(--color-primary);
+}
+.input:focus + .input__btn {
+  transform: translateY(-3px);
+}
+.input__btn {
+  border: none;
+  background-color: transparent;
+  margin-left: -5rem;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  backface-visibility: hidden;
+}
+
+.btn-animated {
+  border: none;
+  cursor: pointer;
+}
+.btn-animated__content {
+  font-size: 3rem;
+  position: relative;
+  height: 4rem;
+}
+.btn-animated__content--first {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease-in-out;
+}
+.btn-animated__content--second {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-200%, -40%);
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+}
+.btn-animated:hover .btn-animated__content--first {
+  transform: translate(500%, -50%);
+  opacity: 0;
+}
+.btn-animated:hover .btn-animated__content--second {
+  transform: translate(-50%, -40%);
+  opacity: 1;
+}
+
 .container {
+  padding: 15rem;
+}
+
+.content {
   display: flex;
-  margin: 10rem;
   box-shadow: 9px 8px 20px 0px rgba(0, 0, 0, 0.4);
   border-radius: 4px;
   overflow: hidden;
+  background-color: #2646530a;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.search {
+  flex: 0 0 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+}
+.search__text {
+  display: inline;
+}
+.search__form {
+  display: inline-block;
+  display: flex;
+}
+
+.scrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.scrap__form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-recipe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.add-recipe__form {
+  display: flex;
+  flex-direction: column;
+}
+.add-recipe__form .input {
+  margin-bottom: 2rem;
+}
+.add-recipe__form label {
+  margin-bottom: 1rem;
+  font-family: inherit;
+  font-size: 1.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */

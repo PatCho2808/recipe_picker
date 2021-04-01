@@ -1,0 +1,37 @@
+.btn-animated {
+	border: none;
+	cursor: pointer;
+
+	&__content {
+		font-size: 3rem;
+		position: relative;
+		height: 4rem;
+
+		&--first {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			transition: all 0.3s ease-in-out;
+		}
+
+		&--second {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-200%, -40%);
+			transition: all 0.3s ease-in-out;
+			opacity: 0;
+		}
+	}
+
+	&:hover &__content--first {
+		transform: translate(500%, -50%);
+		opacity: 0;
+	}
+
+	&:hover &__content--second {
+		transform: translate(-50%, -40%);
+		opacity: 1;
+	}
+}
