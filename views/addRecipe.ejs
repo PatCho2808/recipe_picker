@@ -1,6 +1,9 @@
 <html>
 	<%- include('head'); -%>
 	<body>
+		<% if (message) {%>
+			<%- include('flash'); -%>
+		<% } %>
 		<div class="container">
 			<div class="content">
 				<%- include('header'); -%>
