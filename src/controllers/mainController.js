@@ -21,13 +21,18 @@ module.exports = {
 
 	searchForRecipes: async (req, res) => {
 		let recipes = [];
+		let message = '';
 		if (req.query.ingredients) {
 			const ingredients = req.query.ingredients.split(' ');
 			recipes = await searchService.getRecipesSortedByMatchingIngredients(
 				ingredients
 			);
+			if (!recipes.length) {
+				message = 'No recipes found';
+			}
 		}
-		res.render('index', { recipes });
+		console.log(recipes.isEmpty);
+		res.render('index', { message, recipes });
 	},
 
 	scrapeRecipe: async (req, res) => {
