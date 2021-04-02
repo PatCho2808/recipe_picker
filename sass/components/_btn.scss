@@ -1,37 +1,36 @@
 .btn-animated {
-	border: none;
 	cursor: pointer;
+	padding: 1.5rem;
+	background-color: transparent;
+	border: 3px solid var(--color-tertiary);
+	text-transform: uppercase;
+	font-size: 2rem;
+	font-weight: 300;
+	position: relative;
+	transition: all 0.2s;
+	letter-spacing: 0.75rem;
+	padding-left: 1.9rem;
 
-	&__content {
-		font-size: 3rem;
-		position: relative;
-		height: 4rem;
-
-		&--first {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			transition: all 0.3s ease-in-out;
-		}
-
-		&--second {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-200%, -40%);
-			transition: all 0.3s ease-in-out;
-			opacity: 0;
-		}
+	&::before {
+		content: '';
+		background-color: var(--color-tertiary);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		transition: all 0.2s ease-in-out;
+		transform: scaleX(0);
+		transform-origin: center;
 	}
 
-	&:hover &__content--first {
-		transform: translate(500%, -50%);
-		opacity: 0;
+	&:hover::before {
+		transform: scaleX(1);
 	}
 
-	&:hover &__content--second {
-		transform: translate(-50%, -40%);
-		opacity: 1;
+	&:hover {
+		// letter-spacing: 1rem;
+		// padding: 1.5rem 1rem 1.5rem 2rem;
 	}
 }
