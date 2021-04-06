@@ -73,8 +73,13 @@
 }
 
 .recipes {
+	&__text {
+		text-align: center;
+	}
+
 	&__list {
 		list-style: none;
+		padding: 0;
 	}
 
 	&__item {
