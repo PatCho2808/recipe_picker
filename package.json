@@ -14,8 +14,7 @@
     "build:sass": "npm run compile:sass & npm run prefix:css",
     "minify:js": "uglifyjs public/js/*.js -o public/js/main.min.js",
     "dev": "npm run watch:node & npm run watch:sass",
-    "build": "npm run minify:js",
-    "heroku-prebuild": "npm i --production=false"
+    "build": "npm i --production=false & npm run minify:js"
   },
   "repository": {
     "type": "git",
