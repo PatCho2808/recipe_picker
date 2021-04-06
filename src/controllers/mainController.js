@@ -31,7 +31,6 @@ module.exports = {
 				message = 'No recipes found';
 			}
 		}
-		console.log(recipes.isEmpty);
 		res.render('index', { message, recipes });
 	},
 
