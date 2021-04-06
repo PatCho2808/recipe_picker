@@ -1,0 +1,19 @@
+<html>
+	<%- include('head'); -%>
+	<body>
+		<% if (message) {%>
+			<%- include('flash'); -%>
+		<% } %>
+		<div class="container">
+			<div class="content">
+				<%- include('header'); -%>
+
+				<main class="main">
+					<%- include('search'); -%> <% if (recipes.length > 0 ) { %> <%-
+					include('recipes'); -%> <% } %>
+				</main>
+			</div>
+		</div>
+		<%- include('scripts'); -%>
+	</body>
+</html>
