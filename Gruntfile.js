@@ -25,9 +25,22 @@ module.exports = function (grunt) {
 			}
 		},
 		uglify: {
-			my_target: {
+			main: {
+				options: {
+					mangle: false
+				},
 				files: {
-					'public/js/main.min.js': ['public/js/*.js']
+					'public/js/addIngredient.min.js': 'public/js/addIngredient.js',
+					'public/js/selectNavItem.min.js': 'public/js/selectNavItem.js'
+				}
+			}
+		},
+		watch: {
+			scripts: {
+				files: ['sass/*.scss'],
+				tasks: ['sass'],
+				options: {
+					spawn: false
 				}
 			}
 		}
@@ -36,6 +49,8 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-postcss');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.registerTask('prod', ['sass', 'postcss', 'uglify']);
+	grunt.registerTask('dev', ['watch']);
 };
