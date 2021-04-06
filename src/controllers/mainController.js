@@ -45,5 +45,17 @@ module.exports = {
 		} catch (error) {
 			res.render('addRecipe', { message: 'Wrong url', recipe: {} });
 		}
+	},
+
+	getAllRecipes: async (req, res) => {
+		try {
+			const recipes = await mongoService.getAllRecipes();
+			res.render('allRecipes', { recipes, message: '' });
+		} catch (error) {
+			res.render('allRecipes', {
+				recipes: [],
+				message: 'Something went wrong. Try again later.'
+			});
+		}
 	}
 };

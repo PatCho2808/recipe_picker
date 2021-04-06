@@ -7,14 +7,13 @@
 		<div class="container">
 			<div class="content">
 				<%- include('header'); -%>
-
 				<main class="main">
-					<%- include('search'); -%> <% if (recipes.length > 0 ) { %> <%-
-					include('recipes'); -%> <% } %>
+                    
+					<% if (recipes.length > 0 ) { %> <%-
+                        include('recipes'); -%> <% } %>
 				</main>
+				<%- include('scripts'); -%>
 			</div>
 		</div>
-		<script src="/js/addIngredient.min.js"></script>
-		<%- include('scripts'); -%>
 	</body>
 </html>

@@ -30,6 +30,8 @@ router.post(
 	(req, res) => mainController.createRecipe(req, res)
 );
 
+router.get('/all', (req, res) => mainController.getAllRecipes(req, res));
+
 router.post('/scrape', (req, res) => mainController.scrapeRecipe(req, res));
 
 module.exports = router;
