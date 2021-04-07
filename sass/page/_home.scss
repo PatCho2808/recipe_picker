@@ -8,6 +8,10 @@
 	border-radius: 4px;
 	overflow: hidden;
 	background-color: #2646530a;
+
+	@include respond(header) {
+		flex-direction: column;
+	}
 }
 
 .main {
@@ -17,6 +21,7 @@
 	justify-content: space-evenly;
 	width: 100%;
 	animation: slide-right 0.5s backwards;
+	padding: 5rem 0;
 }
 
 .search {

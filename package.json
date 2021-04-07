@@ -12,7 +12,7 @@
     "compile:sass": "sass --style=compressed sass/main.scss public/css/style.comp.css",
     "build": "grunt prod",
     "start": "node src/server.js",
-    "dev": "npm run watch:node & grunt dev"
+    "dev": "npm run watch:node & npm run watch:sass"
   },
   "repository": {
     "type": "git",
